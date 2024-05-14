@@ -34,10 +34,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// app.get('/search', mentorsController.search);
-
-// app.get('/mentors/search', mentorsController.search);
-
 app.get('/mentors/search', (req, res) => {
   const { name, specialty, industries } = req.query;
   let query = 'SELECT * FROM mentors WHERE 1';
