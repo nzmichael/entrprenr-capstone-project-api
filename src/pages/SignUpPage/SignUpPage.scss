@@ -1,0 +1,68 @@
+@import '../../styles/partials/fonts';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/resets';
+@import '../../styles/partials/variables';
+
+.sign-up-page {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+  
+.sign-up-page h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+  
+.sign-up-page label {
+    display: block;
+    margin-bottom: 5px;
+}
+  
+.sign-up-page input,
+.sign-up-page textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+  
+.sign-up-page button {
+    width: 100%;
+    padding: 10px;
+    background-color: $blue;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+  
+.sign-up-page button:hover {
+    background-color: #0056b3;
+}
+  
+.error-message {
+    color: #dc3545;
+    margin-bottom: 10px;
+}
+
+.login-link {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.user-signup-link {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+  
+a {
+    color: $blue;
+}

@@ -1,0 +1,30 @@
+@import '../../styles/partials/fonts';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/resets';
+@import '../../styles/partials/variables';
+
+.search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.25rem;
+    padding-top: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+  
+.search-result-item {
+    padding: 1.25rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #F4F2EE;
+}
+  
+.mentor-name {
+    font-weight: bold;
+}
+  
+.mentor-specialty,
+.mentor-industries {
+    margin-top: 5px;
+}
+  

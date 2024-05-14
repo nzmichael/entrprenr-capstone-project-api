@@ -1,0 +1,23 @@
+@import '../../styles/partials/fonts';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/resets';
+@import '../../styles/partials/variables';
+
+.section {
+    margin-bottom: 2.5rem;
+}
+  
+.section-title {
+    font-size: 1.8rem;
+    font-family: $avenir-bold, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #333; 
+    margin-bottom: 0.625rem;
+}
+  
+.section-content {
+    font-size: 1.2rem;
+    font-family: $avenir-regular, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: #666; 
+}

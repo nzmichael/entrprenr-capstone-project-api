@@ -1,0 +1,68 @@
+@import '../../styles/partials/fonts';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/resets';
+@import '../../styles/partials/variables';
+
+.mentor-search-form {
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: -57px;
+      gap: 1rem;
+    }
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      margin-bottom: -10px;
+      gap: 1rem;
+    }
+
+  
+    &__input {
+      padding: 8px;
+      margin-bottom: 10px;
+      width: 200px;
+      padding-left: 2rem;
+      font-family: $avenir-regular Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      font-size: 0.875rem;
+    }
+  
+    &__filters {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+  
+      label {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+  
+        input {
+          margin-right: 5px;
+        }
+      }
+    }
+  
+    &__submit {
+      padding: 8px 16px;
+      background-color: $blue;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 0.625rem;
+      font-family: $avenir-demi, Arial, Helvetica, sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+  
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+}
+  
+
+.mentor-search-form__select {
+    height: 2rem;
+}

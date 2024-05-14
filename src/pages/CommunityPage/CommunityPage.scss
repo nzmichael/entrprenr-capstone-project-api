@@ -1,0 +1,35 @@
+@import '../../styles/partials/fonts';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/resets';
+@import '../../styles/partials/variables';
+
+.community-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.community__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: $blue;
+    text-align: center;
+}
+  
+.post {
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 1rem;
+  
+    &__avatar {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 0.5rem;
+    }
+  
+    &__content {
+      margin-bottom: 0.5rem;
+    }
+}

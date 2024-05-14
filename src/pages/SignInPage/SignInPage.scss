@@ -1,0 +1,43 @@
+@import '../../styles/partials/fonts';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/resets';
+@import '../../styles/partials/variables';
+
+
+.sign {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    background-color: #F8F9FA;
+    
+    @include tablet() {
+      flex-direction: row;
+      background-color: #F8F9FA;
+    }
+  }
+  
+  .sign__items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .sign__title {
+    padding-top: 1rem;
+  }
+  
+  .sign__hero {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .sign__img {
+    width: 100%;
+    @include tablet {
+        height: 450px;
+        object-fit: cover;
+    }
+  }
+  

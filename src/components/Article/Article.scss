@@ -1,0 +1,61 @@
+@import '../../styles/partials/fonts';
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/resets';
+@import '../../styles/partials/variables';
+
+.article-content {
+    padding: 2rem 2rem;
+}
+
+.article-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0.825rem;
+}
+
+.article-conclusion {
+    font-size: 1.2rem;
+    font-family: $avenir-regular, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: #666;
+    padding-bottom: 1.5rem;
+}
+
+.article__button {
+    border: 10px solid #02497B;
+    border-radius: 1rem;
+    background-color: #02497B;
+    color: white;
+    cursor: pointer;
+    font-family: $avenir-demi, Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+section {
+    display: flex;
+}
+
+img.article-image {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem 0;
+}
+  
+.article-link {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1.5rem;
+}
+
+.article {
+    text-align: center;
+    color: $blue;
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    font-family: $avenir-bold, Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
