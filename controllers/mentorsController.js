@@ -1,51 +1,39 @@
 const db = require('../db');
+const knex = require('../knexfile');
 
-exports.search = (req, res) => {
+exports.search = async (req, res) => {
     const { specialty, industries, name } = req.query;
-    
-    let query = 'SELECT * FROM mentors WHERE 1=1';
-    let params = [];
 
-    if (specialty) {
-        query += ' AND specialty = ?';
-        params.push(specialty);
+    try {
+        const mentors = await knex('mentors')
+            .where(builder => {
+                if (specialty) builder.where('specialty', '=', specialty);
+                if (industries) builder.whereRaw('FIND_IN_SET(?, industries) > 0', industries);
+                if (name) builder.where('name', 'like', `%${name}%`);
+            })
+            .select();
+
+        res.json(mentors);
+    } catch (error) {
+        console.error('Error searching mentors:', error);
+        res.status(500).json({ error: 'Error searching mentors' });
     }
-
-    if (industries) {
-        query += ' AND FIND_IN_SET(?, industries) > 0';
-        params.push(industries);
-    }
-
-    if (name) {
-        query += ' AND name LIKE ?';
-        params.push('%' + name + '%');
-    }
-
-    db.query(query, params, (err, result) => {
-        if (err) {
-            console.error(err);
-            res.status(500).send('Error searching mentors');
-            return;
-        }
-
-        res.json(result);
-    });
 };
 
 
-exports.signupMentor = (req, res) => {
+exports.signupMentor = async (req, res) => {
     const { name, email, specialty, bio, password } = req.body;
 
-    db.query('INSERT INTO mentors (name, email, specialty, bio, password) VALUES (?, ?, ?, ?, ?)', [name, email, specialty, bio, password], (err, result) => {
-        if (err) {
-            console.error(err);
-            res.status(500).send('Error adding mentor');
-            return;
-        }
+    try {
+        await knex('mentors').insert({ name, email, specialty, bio, password });
 
         res.status(201).send('Mentor added successfully');
-    });
+    } catch (error) {
+        console.error('Error adding mentor:', error);
+        res.status(500).send('Error adding mentor');
+    }
 };
+
 
 exports.updateProfile = (req, res) => {
     const { id } = req.params;

@@ -1,36 +1,17 @@
-const mysql = require('mysql2');
-const { Sequelize } = require('sequelize');
+const knex = require('knex');
+const knexfile = require('./knexfile');
 
-
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'rootroot',
-  database: 'mentors'
-});
-
-db.connect((err) => {
-  if (err) {
-    console.error('Error connecting to MySQL:', err);
-    return;
-  }
-  console.log('Connected to MySQL database');
-});
-
-require('dotenv').config(); 
-const sequelize = new Sequelize('database_name', process.env.DB_USERNAME, process.env.DB_PASSWORD, {
-  host: 'localhost',
-  dialect: 'mysql'
-});
+const db = knex(knexfile.development);
 
 (async () => {
   try {
-    await sequelize.authenticate();
+    await db.raw('SELECT 1+1 as result');
     console.log('Connected to the database.');
   } catch (error) {
     console.error('Unable to connect to the database:', error);
+  } finally {
+    await db.destroy(); 
   }
 })();
 
 module.exports = db;
-

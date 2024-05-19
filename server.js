@@ -1,28 +1,17 @@
-const express = require("express");
-const bodyParser = require('body-parser');
+import express from "express";
+import bodyParser from 'body-parser';
 const app = express();
 const PORT = 8080;
-require('dotenv').config();
-const mentorsRouter = require('./routes/mentors');
-const usersRouter = require('./routes/users');
-const mentorsController = require('./controllers/mentorsController');
-const cors = require('cors');
-const { User } = require('./models/User');
+import "dotenv/config";
+import { mentorsRouter } from "./routes/mentors.js";
+// import usersRouter from './routes/users.js';
+import cors from "cors";
+// const { User } = require('./models/User');
+import knex from 'knex';
+import knexfile from './knexfile.js';
+const myknex = knex(knexfile);
 
-const sequelize = require('./db');
-const db = require('./db');
-
-async function connectDB() {
-  try {
-    await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
-}
-
-connectDB();
-
+// const db = require('./db');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -36,7 +25,7 @@ app.use((req, res, next) => {
 
 app.get('/mentors/search', (req, res) => {
   const { name, specialty, industries } = req.query;
-  let query = 'SELECT * FROM mentors WHERE 1';
+  let query = myknex.select('*').from('mentors');
 
   if (name) {
     query += ` AND name LIKE '%${name}%'`;

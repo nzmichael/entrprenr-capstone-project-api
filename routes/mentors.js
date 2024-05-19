@@ -1,9 +1,10 @@
-const express = require('express');
+import express from "express";
 const router = express.Router();
 
-const authMiddleware = require('../middleware/authorize');
+import { authMiddleware } from '../middleware/authorize';
 const { logout } = require('../controllers/authController');
-const mentorsController = require('../controllers/mentorsController');
+import mentorsController from '../controllers/mentorsController';
+// import { getAll, getById, create, update, remove } from '../controllers/mentorsController';
 
 
 router.get('/mentors/search', mentorsController.search);
@@ -14,7 +15,9 @@ router.get('/:id', mentorsController.getMentorById);
 router.delete('/:id', mentorsController.deleteMentorById);
 router.post('/signin', mentorsController.signin);
 
-router.use(authMiddleware);
+// router.use(authMiddleware);
+// router.get(authMiddleware);
+
 router.get('/current', (req, res) => {
     res.json(req.user);
 });
@@ -22,4 +25,9 @@ router.get('/current', (req, res) => {
 
 router.post('/logout', logout);
 
-module.exports = router;
+
+
+// module.exports = router;
+module.exports = mentorsRouter;
+
+export const mentorsRouter = router;
